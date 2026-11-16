@@ -1,0 +1,300 @@
+/* ---------- Everything uses border-box ---------- */
+* {
+  box-sizing: border-box;
+}
+
+/* ---------- Colours are stored once, as variables ---------- */
+:root {
+  /* light page: white and red */
+  --bg: #ffffff;
+  --text: #221a1b;
+  --muted: #6b5a5c;
+  --surface: #fff5f5;
+  --border: #f3d6d9;
+  --accent: #d62839;
+  --accent-text: #ffffff;
+  --hero-bg: #d62839;
+  --hero-text: #ffffff;
+  --bar-bg: #ffffff;
+  --card-bg: #d62839;
+  --card-text: #ffffff;
+  --shadow: rgba(214, 40, 57, 0.2);
+
+  /* dark page: near-black with red */
+  --dark-bg: #150e0f;
+  --dark-text: #f7ecec;
+  --dark-muted: #c4a9ac;
+  --dark-surface: #241618;
+  --dark-border: #4a2a2e;
+  --dark-accent: #ff5a6a;
+  --dark-accent-text: #150e0f;
+  --dark-hero-bg: #7d1622;
+  --dark-hero-text: #ffffff;
+  --dark-bar-bg: #241618;
+  --dark-card-bg: #a31d2b;
+  --dark-card-text: #ffffff;
+  --dark-shadow: rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- Base ---------- */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s, color 0.25s;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Header: red band with the name and the bar ---------- */
+header {
+  padding: 56px max(20px, calc((100% - 920px) / 2)) 130px;
+  color: var(--hero-text);
+  background: var(--hero-bg);
+  border-bottom-left-radius: 48px;
+  border-bottom-right-radius: 48px;
+}
+
+h1 {
+  margin: 0 0 28px;
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+/* ---------- Bar: name on the left, links on the right ---------- */
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 12px 14px 12px 26px;
+  background: var(--bar-bg);
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+}
+
+.bar-name {
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.bar-links {
+  display: flex;
+  gap: 6px;
+}
+
+.bar-links a {
+  padding: 8px 16px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 999px;
+}
+
+.bar-links a:hover {
+  color: var(--accent-text);
+  background: var(--accent);
+}
+
+/* ---------- Main ---------- */
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Photo: overlaps the red band ---------- */
+.photo {
+  display: block;
+  width: 200px;
+  max-width: 100%;
+  height: 200px;
+  margin: -100px auto 0;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 8px solid var(--bg);
+  box-shadow: 0 12px 28px var(--shadow);
+}
+
+.tagline {
+  margin: 18px 0 44px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+/* ---------- Cards: three in a row ---------- */
+.cards {
+  display: flex;
+  gap: 22px;
+}
+
+.card {
+  flex: 1;
+  padding: 26px 22px;
+  color: var(--card-text);
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 10px 22px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 30px var(--shadow);
+}
+
+.card h2 {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 14px;
+  font-size: 1rem;
+  color: var(--card-bg);
+  background: var(--card-text);
+  border-radius: 999px;
+}
+
+.card p {
+  margin: 0;
+}
+
+/* ---------- Form ---------- */
+#contact {
+  max-width: 460px;
+  margin: 64px auto 0;
+  padding: 30px;
+  background: var(--bg);
+  border: 3px solid var(--accent);
+  border-radius: 20px;
+  box-shadow: 0 10px 22px var(--shadow);
+}
+
+#contact h2 {
+  color: var(--accent);
+}
+
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+}
+
+input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 26px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--accent-text);
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px var(--shadow);
+}
+
+#contact button {
+  width: 100%;
+}
+
+/* The dark / light button floats at the corner of the screen */
+#theme-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: auto;
+  margin: 0;
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  margin: 72px 0 0;
+  padding: 28px 20px 90px;
+  text-align: center;
+  color: var(--hero-text);
+  background: var(--hero-bg);
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ---------- Dark page: the class JavaScript adds to body ---------- */
+body.dark {
+  --bg: var(--dark-bg);
+  --text: var(--dark-text);
+  --muted: var(--dark-muted);
+  --surface: var(--dark-surface);
+  --border: var(--dark-border);
+  --accent: var(--dark-accent);
+  --accent-text: var(--dark-accent-text);
+  --hero-bg: var(--dark-hero-bg);
+  --hero-text: var(--dark-hero-text);
+  --bar-bg: var(--dark-bar-bg);
+  --card-bg: var(--dark-card-bg);
+  --card-text: var(--dark-card-text);
+  --shadow: var(--dark-shadow);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 640px) {
+  header {
+    padding-bottom: 110px;
+  }
+
+  .bar {
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px;
+    border-radius: 28px;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
